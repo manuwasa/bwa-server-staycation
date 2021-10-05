@@ -1,0 +1,45 @@
+<div class="tab-pane fade show active" id="edit-item" role="tabpanel" aria-labelledby="profile-tab">
+    <div class="card shadow mb-4 mt-2">
+        <div class="card-body">
+            <form method="POST" action="/admin/item/<%= item.id %>?_method=PUT" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" value="<%= item.title %>"
+                        placeholder="Type your bank title here ..." required>
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="text" class="form-control" id="price" name="price" value="<%= item.price %>"
+                        placeholder="Type your price name here ..." required>
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" id="city" name="city" value="<%= item.city %>"
+                        placeholder="Type your city name here ..." required>
+                </div>
+                <div class="form-group">
+                    <label for="Category">Category</label>
+                    <select name="categoryId" id="" class="form-control">
+                        <option value="<%= item.categoryId._id %>">--- <%= item.categoryId.name %> ---</option>
+                        <% for(let i=0; i < category.length; i++){ %>
+                            <option value="<%= category[i].id %>">
+                                <%= category[i].name %>
+                            </option>
+                            <% } %>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="image">Image</label>
+                    <input type="file" class="form-control" id="image" name="image" multiple>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea name="about" class="form-control">
+                        <%= item.description %>
+                    </textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+    </div>
+</div>

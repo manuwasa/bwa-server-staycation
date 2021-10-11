@@ -128,7 +128,7 @@ module.exports = {
         accountHolder === undefined ||
         bankFrom === undefined
       ) {
-        return res.status(404).json({ message: "Lengkapi semua field" });
+        return res.status(404).json({ message: "Lengkapi semua fields" });
       }
 
       const item = await Item.findOne({ _id: idItem });
